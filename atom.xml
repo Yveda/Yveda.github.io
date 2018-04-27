@@ -38,11 +38,11 @@
   </entry>
   
   <entry>
-    <title>my new post</title>
+    <title>解放军</title>
     <link href="http://yoursite.com/2015/04/08/project1/"/>
     <id>http://yoursite.com/2015/04/08/project1/</id>
-    <published>2015-04-08T14:56:29.000Z</published>
-    <updated>2018-04-27T09:31:35.375Z</updated>
+    <published>2015-04-08T14:59:29.000Z</published>
+    <updated>2018-04-27T09:39:39.396Z</updated>
     
     <content type="html"><![CDATA[<p>#这里是正文，用markdown写，你可以选择写一段显示在首页的简介后，加上</p><h2 id="在之前的内容会显示在首页，之后的内容会被隐藏，当游客点击Read-more才能看到。"><a href="#在之前的内容会显示在首页，之后的内容会被隐藏，当游客点击Read-more才能看到。" class="headerlink" title="#在之前的内容会显示在首页，之后的内容会被隐藏，当游客点击Read more才能看到。"></a><a id="more"></a>#在<!--more-->之前的内容会显示在首页，之后的内容会被隐藏，当游客点击Read more才能看到。</h2>]]></content>
     
@@ -56,7 +56,7 @@
       <category term="blog" scheme="http://yoursite.com/categories/blog/"/>
     
     
-      <category term="博客，文章" scheme="http://yoursite.com/tags/%E5%8D%9A%E5%AE%A2%EF%BC%8C%E6%96%87%E7%AB%A0/"/>
+      <category term="军事" scheme="http://yoursite.com/tags/%E5%86%9B%E4%BA%8B/"/>
     
   </entry>
   
