@@ -83,11 +83,11 @@
   </entry>
   
   <entry>
-    <title>解放军</title>
+    <title>army</title>
     <link href="https://yveda.github.io/2015/04/08/project1/"/>
     <id>https://yveda.github.io/2015/04/08/project1/</id>
     <published>2015-04-08T14:59:29.000Z</published>
-    <updated>2018-04-27T09:39:39.396Z</updated>
+    <updated>2018-04-28T17:03:39.574Z</updated>
     
     <content type="html"><![CDATA[<p>#这里是正文，用markdown写，你可以选择写一段显示在首页的简介后，加上</p><h2 id="在之前的内容会显示在首页，之后的内容会被隐藏，当游客点击Read-more才能看到。"><a href="#在之前的内容会显示在首页，之后的内容会被隐藏，当游客点击Read-more才能看到。" class="headerlink" title="#在之前的内容会显示在首页，之后的内容会被隐藏，当游客点击Read more才能看到。"></a><a id="more"></a>#在<!--more-->之前的内容会显示在首页，之后的内容会被隐藏，当游客点击Read more才能看到。</h2>]]></content>
     
@@ -98,7 +98,7 @@
     
     </summary>
     
-      <category term="blog" scheme="https://yveda.github.io/categories/blog/"/>
+      <category term="其他" scheme="https://yveda.github.io/categories/other/"/>
     
     
       <category term="军事" scheme="https://yveda.github.io/tags/%E5%86%9B%E4%BA%8B/"/>
