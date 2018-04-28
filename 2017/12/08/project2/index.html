@@ -5,18 +5,18 @@
   
   <title>用hexo搭建博客 | Yveda博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="hexo搭建博客前言12搭建一个博客感觉很酷很炫，本着这个心理我就想创建一个个人博客。hexo官网：https://hexo.io/zh-cn/ 安装git，node.js安装hexo123456安装前先介绍几个hexo常用的命令,#后面为注释。1.$ hexo g #完整命令为hexo generate，用于生成静态文件2.$ hexo s #完整命令为hexo server，用于启动服务器，主">
+  <meta name="description" content="hexo搭建博客前言12搭建一个博客感觉很酷很炫，本着这个心理我就想创建一个个人博客。hexo官网：https://hexo.io/zh-cn/">
 <meta name="keywords" content="心得">
 <meta property="og:type" content="article">
 <meta property="og:title" content="用hexo搭建博客">
 <meta property="og:url" content="https://yveda.github.io/2017/12/08/project2/index.html">
 <meta property="og:site_name" content="Yveda博客">
-<meta property="og:description" content="hexo搭建博客前言12搭建一个博客感觉很酷很炫，本着这个心理我就想创建一个个人博客。hexo官网：https://hexo.io/zh-cn/ 安装git，node.js安装hexo123456安装前先介绍几个hexo常用的命令,#后面为注释。1.$ hexo g #完整命令为hexo generate，用于生成静态文件2.$ hexo s #完整命令为hexo server，用于启动服务器，主">
+<meta property="og:description" content="hexo搭建博客前言12搭建一个博客感觉很酷很炫，本着这个心理我就想创建一个个人博客。hexo官网：https://hexo.io/zh-cn/">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-04-28T08:08:23.394Z">
+<meta property="og:updated_time" content="2018-04-28T14:57:46.359Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用hexo搭建博客">
-<meta name="twitter:description" content="hexo搭建博客前言12搭建一个博客感觉很酷很炫，本着这个心理我就想创建一个个人博客。hexo官网：https://hexo.io/zh-cn/ 安装git，node.js安装hexo123456安装前先介绍几个hexo常用的命令,#后面为注释。1.$ hexo g #完整命令为hexo generate，用于生成静态文件2.$ hexo s #完整命令为hexo server，用于启动服务器，主">
+<meta name="twitter:description" content="hexo搭建博客前言12搭建一个博客感觉很酷很炫，本着这个心理我就想创建一个个人博客。hexo官网：https://hexo.io/zh-cn/">
   
     <link rel="alternate" href="/atom.xml" title="Yveda博客" type="application/atom+xml">
   
@@ -106,6 +106,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="hexo搭建博客"><a href="#hexo搭建博客" class="headerlink" title="hexo搭建博客"></a>hexo搭建博客</h2><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">搭建一个博客感觉很酷很炫，本着这个心理我就想创建一个个人博客。</span><br><span class="line">hexo官网：https://hexo.io/zh-cn/</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <h3 id="安装git，node-js"><a href="#安装git，node-js" class="headerlink" title="安装git，node.js"></a>安装git，node.js</h3><h3 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">安装前先介绍几个hexo常用的命令,#后面为注释。</span><br><span class="line">1.$ hexo g #完整命令为hexo generate，用于生成静态文件</span><br><span class="line">2.$ hexo s #完整命令为hexo server，用于启动服务器，主要用来本地预览</span><br><span class="line">3.$ hexo d #完整命令为hexo deploy，用于将本地文件发布到github上</span><br><span class="line">4.$ hexo n #完整命令为hexo new，用于新建一篇文章</span><br><span class="line">5.$hexo new page &quot;pageName&quot; ,新建页面</span><br></pre></td></tr></table></figure>
 <h5 id="安装脚手架"><a href="#安装脚手架" class="headerlink" title="安装脚手架"></a>安装脚手架</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">鼠标右键任意地方，选择Git Bash，使用以下命令安装hexo</span><br><span class="line">$ npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
 <h5 id="如果之后在使用的过程中，遇到以下的错误"><a href="#如果之后在使用的过程中，遇到以下的错误" class="headerlink" title="如果之后在使用的过程中，遇到以下的错误"></a>如果之后在使用的过程中，遇到以下的错误</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ERROR Deployer not found : github</span><br></pre></td></tr></table></figure>
@@ -132,7 +133,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yveda.github.io/2017/12/08/project2/" data-id="cjgj8zlql0005a4vux9qtfvq0" class="article-share-link">分享</a>
+      <a data-url="https://yveda.github.io/2017/12/08/project2/" data-id="cjgjihxjn0006ssvu5x4n73mw" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/心得/">心得</a></li></ul>
