@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="Yveda博客">
 <meta property="og:description" content="前言如何配置文件和Shana主题">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-04-28T16:28:46.666Z">
+<meta property="og:updated_time" content="2018-04-29T07:51:02.528Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo文件配置及主题">
 <meta name="twitter:description" content="前言如何配置文件和Shana主题">
@@ -112,12 +112,14 @@
         <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><h5 id="如何配置文件和Shana主题"><a href="#如何配置文件和Shana主题" class="headerlink" title="如何配置文件和Shana主题"></a>如何配置文件和Shana主题</h5><a id="more"></a>
 <h3 id="设置头像"><a href="#设置头像" class="headerlink" title="设置头像"></a>设置头像</h3><h5 id="在站点配置文件中-添加avatar字段-值设置成头像的链接地址"><a href="#在站点配置文件中-添加avatar字段-值设置成头像的链接地址" class="headerlink" title="在站点配置文件中,添加avatar字段,值设置成头像的链接地址"></a>在站点配置文件中,添加avatar字段,值设置成头像的链接地址</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">avatar: /images/avatar.png</span><br><span class="line">路径主题文件source/images目录下</span><br></pre></td></tr></table></figure>
 <h3 id="设置网站图标-注意必须为ico格式"><a href="#设置网站图标-注意必须为ico格式" class="headerlink" title="设置网站图标(注意必须为ico格式)"></a>设置网站图标(注意必须为ico格式)</h3><h5 id="在主题配置文件中-把favicon的注释去掉即可"><a href="#在主题配置文件中-把favicon的注释去掉即可" class="headerlink" title="在主题配置文件中,把favicon的注释去掉即可"></a>在主题配置文件中,把favicon的注释去掉即可</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># Put your favicon.ico into `hexo-site/source/` directory.</span><br><span class="line">favicon: images/favicon.ico</span><br><span class="line">//路径主题文件source/images目录下</span><br></pre></td></tr></table></figure>
+<h3 id="自定义代码高亮"><a href="#自定义代码高亮" class="headerlink" title="自定义代码高亮"></a>自定义代码高亮</h3><p>#####　在hexo-theme-shana\source\css_partial\highlight.styl<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$code-block</span><br><span class="line">  border-left: 5px solid #eb3c3c</span><br><span class="line">  background: #9d</span><br><span class="line">  margin: 0 article-padding * -1</span><br><span class="line">  padding: 15px article-padding</span><br><span class="line">  overflow: auto</span><br><span class="line">  color: highlight-foreground</span><br><span class="line">  line-height: font-size * line-height</span><br></pre></td></tr></table></figure></p>
+<h3 id="自定义背景图片"><a href="#自定义背景图片" class="headerlink" title="自定义背景图片"></a>自定义背景图片</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo-theme-shana\source\plugin\bganimation\bg.css</span><br><span class="line"></span><br><span class="line">替换里面的图片url就可以了</span><br></pre></td></tr></table></figure>
 <hr>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yveda.github.io/2018/04/28/project3/" data-id="cjgjnwk430008z0vurbf96xcf" class="article-share-link">分享</a>
+      <a data-url="https://yveda.github.io/2018/04/28/project3/" data-id="cjgkje5ax0009l4vuz87y1ey8" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/心得/">心得</a></li></ul>
@@ -197,6 +199,14 @@
           Github
         </a>
       
+        <a class="hvr-bounce-in" href="http://weibo.com/your-user-name" target="_blank" title="微博">
+          微博
+        </a>
+      
+        <a class="hvr-bounce-in" href="http://douban.com/people/your-user-name" target="_blank" title="知乎">
+          知乎
+        </a>
+      
     </div>
 
     <div class="friend-link">
@@ -204,6 +214,14 @@
       
         <a class="hvr-bounce-in" href="http://chuangzaoshi.com/product" target="_blank" title="创造狮">
           创造狮
+        </a>
+      
+        <a class="hvr-bounce-in" href="http://tool.oschina.net/jscompress" target="_blank" title="代码压缩">
+          代码压缩
+        </a>
+      
+        <a class="hvr-bounce-in" href="http://example.com/" target="_blank" title="CSS整理">
+          CSS整理
         </a>
       
     </div>
