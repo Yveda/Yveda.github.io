@@ -1889,9 +1889,8 @@ a.article-title:hover {
   color: #ddd;
 }
 #footer {
-  background: rgba(255,255,255,0.9);
+  background: rgba(0,0,0,0);
   padding: 50px 0;
-  border-top: 1px solid #ddd;
   color: #999;
 }
 #footer a {
