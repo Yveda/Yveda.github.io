@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Yveda.blog</title>
   
-  <subtitle>作为一个怪兽，我的愿望是至少消灭一个奥特曼。</subtitle>
+  
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yveda.github.io/"/>
