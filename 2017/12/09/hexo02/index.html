@@ -20,16 +20,16 @@
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="hexo-theme,hexo-config">
+    <meta name="keywords" content="hexo-config,hexo-theme">
     <meta name="description" content="前言配置文件和Shana主题">
-<meta name="keywords" content="hexo-theme,hexo-config">
+<meta name="keywords" content="hexo-config,hexo-theme">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hexo文件配置及主题">
 <meta property="og:url" content="https://yveda.github.io/2017/12/09/hexo02/index.html">
 <meta property="og:site_name" content="Yveda.blog">
 <meta property="og:description" content="前言配置文件和Shana主题">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-06-01T16:35:24.883Z">
+<meta property="og:updated_time" content="2018-06-01T16:58:58.051Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo文件配置及主题">
 <meta name="twitter:description" content="前言配置文件和Shana主题">
@@ -283,7 +283,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-06-01T16:35:24.883Z" itemprop="dateUpdated">2018-06-02 00:35:24</time>
+    最后更新时间：<time datetime="2018-06-01T16:58:58.051Z" itemprop="dateUpdated">2018-06-02 00:58:58</time>
 </span><br>
 
 
@@ -397,6 +397,30 @@
 
 
 
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "",
+            appKey: "",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
 
 
 

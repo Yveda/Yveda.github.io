@@ -20,16 +20,16 @@
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="hexo-build">
+    <meta name="keywords" content="hexo-config">
     <meta name="description" content="前言12搭建一个博客感觉很酷很炫，本着这个心理我就想创建一个个人博客。hexo官网：https://hexo.io/zh-cn/">
-<meta name="keywords" content="hexo-build">
+<meta name="keywords" content="hexo-config">
 <meta property="og:type" content="article">
 <meta property="og:title" content="用hexo搭建博客">
 <meta property="og:url" content="https://yveda.github.io/2017/12/08/hexo01/index.html">
 <meta property="og:site_name" content="Yveda.blog">
 <meta property="og:description" content="前言12搭建一个博客感觉很酷很炫，本着这个心理我就想创建一个个人博客。hexo官网：https://hexo.io/zh-cn/">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-06-01T16:43:44.687Z">
+<meta property="og:updated_time" content="2018-06-01T16:59:22.821Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用hexo搭建博客">
 <meta name="twitter:description" content="前言12搭建一个博客感觉很酷很炫，本着这个心理我就想创建一个个人博客。hexo官网：https://hexo.io/zh-cn/">
@@ -239,7 +239,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-06-01T16:43:44.687Z" itemprop="dateUpdated">2018-06-02 00:43:44</time>
+    最后更新时间：<time datetime="2018-06-01T16:59:22.821Z" itemprop="dateUpdated">2018-06-02 00:59:22</time>
 </span><br>
 
 
@@ -265,7 +265,7 @@
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo-build/">hexo-build</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo-config/">hexo-config</a></li></ul>
 
 
             
@@ -346,6 +346,30 @@
 
 
 
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "",
+            appKey: "",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
 
 
 
