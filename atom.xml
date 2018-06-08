@@ -45,13 +45,15 @@
     <link href="https://yveda.github.io/2018/04/28/20180430/"/>
     <id>https://yveda.github.io/2018/04/28/20180430/</id>
     <published>2018-04-28T13:51:29.000Z</published>
-    <updated>2018-06-08T03:11:35.734Z</updated>
+    <updated>2018-06-08T03:34:42.015Z</updated>
     
     <content type="html"><![CDATA[<h3 id="感想"><a href="#感想" class="headerlink" title="感想"></a>感想</h3><blockquote><ul><li>快毕业了意味着也快要找工作了，感慨万千。多学点东西，多点出路。<a id="more"></a></li><li>完成了一个毕业设计《基于vue框架的web音乐app的设计与实现》</li><li>4月9号 遇到了小幸运</li><li>加深node.js和vue的掌握</li></ul></blockquote><h3 id="展望"><a href="#展望" class="headerlink" title="展望"></a>展望</h3><blockquote><ul><li>完善音乐移动端app</li><li>Vue+Node+MongoDB项目</li><li><a href="http://study.163.com/course/introduction.htm?courseId=1003797015#/courseDetail?tab=1" target="_blank" rel="noopener">Vue TODO List</a></li><li>完善个人博客+腾讯云</li></ul></blockquote><hr>]]></content>
     
     <summary type="html">
     
-      文章访问密码：password
+      &lt;h3 id=&quot;感想&quot;&gt;&lt;a href=&quot;#感想&quot; class=&quot;headerlink&quot; title=&quot;感想&quot;&gt;&lt;/a&gt;感想&lt;/h3&gt;&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;快毕业了意味着也快要找工作了，感慨万千。多学点东西，多点出路。
     
     </summary>
     
@@ -106,9 +108,9 @@
       <category term="hexo" scheme="https://yveda.github.io/categories/hexo/"/>
     
     
-      <category term="hexo-theme" scheme="https://yveda.github.io/tags/hexo-theme/"/>
-    
       <category term="hexo-config" scheme="https://yveda.github.io/tags/hexo-config/"/>
+    
+      <category term="hexo-theme" scheme="https://yveda.github.io/tags/hexo-theme/"/>
     
   </entry>
   
