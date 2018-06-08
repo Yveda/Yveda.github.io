@@ -44,6 +44,16 @@
 
 </head>
 
+<script>
+    (function(){
+        if('{{ page.password }}'){
+            if (prompt('请输入文章密码') !== '{{ page.password }}'){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
 <body>
     <div id="loading" class="active"></div>
 
@@ -168,11 +178,11 @@
             ">全部</a>
         
 
-            <a href="/categories/hexo/" style="-webkit-order:0;order:0" class="tags-list-item waves-effect waves-button waves-light active">hexo</a>
+            <a href="/categories/总结/" style="-webkit-order:0;order:0" class="tags-list-item waves-effect waves-button waves-light">总结</a>
 
         
 
-            <a href="/categories/总结/" style="-webkit-order:1;order:1" class="tags-list-item waves-effect waves-button waves-light">总结</a>
+            <a href="/categories/hexo/" style="-webkit-order:1;order:1" class="tags-list-item waves-effect waves-button waves-light active">hexo</a>
 
         
 
