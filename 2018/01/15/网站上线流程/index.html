@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>用阿里云进行网站线上部署 | Yveda.blog | 业精于勤荒于嬉</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="阿里云,网站,服务器,linux,git,域名">
+    <meta name="description" content="需要基础：  1、有linux基础。 2、对后台web开发有一定的了解。 3、熟悉Nginx。">
+<meta name="keywords" content="阿里云,网站,服务器,linux,git,域名">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用阿里云进行网站线上部署">
+<meta property="og:url" content="https://yveda.github.io/2018/01/15/网站上线流程/index.html">
+<meta property="og:site_name" content="Yveda.blog">
+<meta property="og:description" content="需要基础：  1、有linux基础。 2、对后台web开发有一定的了解。 3、熟悉Nginx。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-12/93070241.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-12/93388163.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-12/85857310.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-12/26412084.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-12/2561741.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-12/61643520.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-12/59281895.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-12/22654187.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-12/74024045.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-12/683846.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-12/2894429.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-12/60890461.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-12/76913933.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-12/12495136.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-12/33572240.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-12/75486357.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-12/81231087.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-12/51181202.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-12/8354354.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-12/60279040.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-12/10635497.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-12/41258348.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-12/19266347.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-12/77458283.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-12/79408794.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-12/39907219.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-12/58882478.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-12/94964213.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-12/66251680.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-12/64120826.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-12/37781356.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-12/2651078.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-12/7535552.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-12/7535552.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-12/66136024.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-12/53243164.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-12/87884341.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-12/65990059.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-12/44335486.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-12/12866453.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-12/74638064.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-12/74638064.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-12/64266085.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-12/21756881.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-12/68991873.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-12/6700773.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-12/35938508.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-12/2478310.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-12/89475377.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-12/26732409.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-12/71776217.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-12/15781030.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-12/15781030.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-12/4202062.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-12/61931974.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-12/72112771.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-12/95317838.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-12/68901184.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-12/19343900.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-12/21135815.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-12/63395166.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-12/72893282.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-12/1458819.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-12/64503786.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-12/39690899.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-12/17204424.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-12/61439000.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-12/84369466.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-13/26915546.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-13/9249317.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-13/14333216.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-13/42984257.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-13/48622285.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-13/62531161.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-13/52503823.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-13/44936912.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-13/82423279.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-13/31893841.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-13/40031260.jpg">
+<meta property="og:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-13/89478892.jpg">
+<meta property="og:updated_time" content="2018-06-12T16:44:44.437Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="用阿里云进行网站线上部署">
+<meta name="twitter:description" content="需要基础：  1、有linux基础。 2、对后台web开发有一定的了解。 3、熟悉Nginx。">
+<meta name="twitter:image" content="http://p9zhlsorz.bkt.clouddn.com/18-6-12/93070241.jpg">
+    
+        <link rel="alternate" type="application/atom+xml" title="Yveda.blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Yveda</h5>
+          <a href="mailto:2683161248@qq.com" title="2683161248@qq.com" class="mail">2683161248@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                种类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-user-secret"></i>
+                关于我
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Yveda" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://uirush.com/page/development" target="_blank" >
+                <i class="icon icon-lg icon-compass"></i>
+                开发导航
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.zybuluo.com/mdeditor#1131528"  >
+                <i class="icon icon-lg icon-edit"></i>
+                在线Markdown
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">用阿里云进行网站线上部署</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">用阿里云进行网站线上部署</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-01-15T07:17:58.000Z" itemprop="datePublished" class="page-time">
+  2018-01-15
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/web/">web</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#购买服务器"><span class="post-toc-number">1.</span> <span class="post-toc-text">购买服务器</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#基础配置"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">基础配置</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#网络和安全组"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">网络和安全组</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#系统配置"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">系统配置</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#分组设置"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">分组设置</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#确认订单"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">确认订单</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#管理控制台"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">管理控制台</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#连接到服务器"><span class="post-toc-number">2.</span> <span class="post-toc-text">连接到服务器</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#web服务器选择"><span class="post-toc-number">3.</span> <span class="post-toc-text">web服务器选择</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#推荐三款"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">推荐三款</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#如何安装？"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">如何安装？</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#推荐安装方法"><span class="post-toc-number">3.2.1.</span> <span class="post-toc-text">推荐安装方法</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#下面准备一个全新的CentOS系统"><span class="post-toc-number">3.2.2.</span> <span class="post-toc-text">下面准备一个全新的CentOS系统</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#配置web服务器"><span class="post-toc-number">4.</span> <span class="post-toc-text">配置web服务器</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#首先找到配置文件"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">首先找到配置文件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#如果找不到配置文件"><span class="post-toc-number">4.1.1.</span> <span class="post-toc-text">如果找不到配置文件</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装vim"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">安装vim</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#然后打开nginx-conf"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">然后打开nginx.conf</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#再进入nginx-conf"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">再进入nginx.conf</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#上传网站到服务器"><span class="post-toc-number">5.</span> <span class="post-toc-text">上传网站到服务器</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#域名购买以及解析"><span class="post-toc-number">6.</span> <span class="post-toc-text">域名购买以及解析</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#域名购买"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">域名购买</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#域名映射"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">域名映射</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#结合http协议"><span class="post-toc-number">7.</span> <span class="post-toc-text">结合http协议</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#总结"><span class="post-toc-number">8.</span> <span class="post-toc-text">总结</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-网站上线流程"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">用阿里云进行网站线上部署</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-01-15 15:17:58" datetime="2018-01-15T07:17:58.000Z"  itemprop="datePublished">2018-01-15</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/web/">web</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>需要基础：</p>
+<ul>
+<li>1、有linux基础。</li>
+<li>2、对后台web开发有一定的了解。</li>
+<li>3、熟悉Nginx。<a id="more"></a>
+学到什么：</li>
+<li>1、通过阿里云购买服务，并配置。</li>
+<li>2、实现把自己准备好的项目，发布到公网，让大家都能访问。</li>
+</ul>
+<p><img src="http://p9zhlsorz.bkt.clouddn.com/18-6-12/93070241.jpg" alt=""></p>
+<p>生产环境中推荐使用linux，因为他会比windos更加稳定出色</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-12/93388163.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="购买服务器"><a href="#购买服务器" class="headerlink" title="购买服务器"></a>购买服务器</h2><p>选择入门级来构建博客绰绰有余</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-12/85857310.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>往下拉，随便点进下面一个<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-12/26412084.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h3 id="基础配置"><a href="#基础配置" class="headerlink" title="基础配置"></a>基础配置</h3><p>选择一款需要的服务器：2核cpu，2GB内存</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-12/2561741.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>然后往下拉，最重要的地方来了-镜像（指操作系统）</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-12/61643520.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>选择linux的CentOS版本</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-12/59281895.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>版本建议7.0以上版本</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-12/22654187.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>再往下是存储，分为<code>系统盘</code>和<code>数据盘</code>，如果觉得数据很多，需要存个数据库，那么可以增加一个数据盘</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-12/74024045.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>如果没有那么大的需求，我们只是希望系统盘能大一点，高效云盘选择140G，者样初期配置完成，接着点击下一步<code>网络和安全组</code></p>
+<h3 id="网络和安全组"><a href="#网络和安全组" class="headerlink" title="网络和安全组"></a>网络和安全组</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-12/683846.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>上面的<code>网络</code>和<code>公网带宽</code>先不用管，最重要先看<code>安全组</code></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-12/2894429.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>安全组默认有几个端口，80端口默认是要打开的，还有默认的两个，80是http网站的默认端口，并且是隐式存在的，不需要显式的写出来，如果是其他的端口就要把它显式的写出来，接着下一步</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-12/60890461.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="系统配置"><a href="#系统配置" class="headerlink" title="系统配置"></a>系统配置</h3><p>这里面最重要的就是配置密码，密钥对对新手来说有些麻烦，所以选择较为简单的密码，密码建议设置复杂一点</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-12/76913933.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>描述可以随便填写，主机名可以设置为blog，这些设置完了之后其实大部分已经配置完了</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-12/12495136.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="分组设置"><a href="#分组设置" class="headerlink" title="分组设置"></a>分组设置</h3><p>影响很小，可以添加标签，比方说用于测试，开发，服务</p>
+<p>然后就可以点击确认订单了，这样服务器购买就基本上完成了</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-12/33572240.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="确认订单"><a href="#确认订单" class="headerlink" title="确认订单"></a>确认订单</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-12/75486357.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>往下拉，选择时间和确认服务，然后点击购买进入购买页面，完了之后点击左上角的<code>管理控制台</code></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-12/81231087.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="管理控制台"><a href="#管理控制台" class="headerlink" title="管理控制台"></a>管理控制台</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-12/51181202.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>点击进入刚才购买的<code>云服务器</code>,里面有服务器的情况配置和资源整合，后期的ip配置，密码更改都可以在这个地方看到</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-12/8354354.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="连接到服务器"><a href="#连接到服务器" class="headerlink" title="连接到服务器"></a>连接到服务器</h2><p>这个工具集成了linux的很强大的命令行工具，包括连接，上传….</p>
+<p>ip在买完后个人控制中心看到ip地址</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-12/60279040.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-12/10635497.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>输入ssh <a href="mailto:root@47.94.255.230" target="_blank" rel="noopener">root@47.94.255.230</a>，这里虽然没有显示但是已经输入了，然后可以看到机器；通过uname -a查看一下版本</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-12/41258348.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="web服务器选择"><a href="#web服务器选择" class="headerlink" title="web服务器选择"></a>web服务器选择</h2><h3 id="推荐三款"><a href="#推荐三款" class="headerlink" title="推荐三款"></a>推荐三款</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-12/19266347.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="如何安装？"><a href="#如何安装？" class="headerlink" title="如何安装？"></a>如何安装？</h3><p>输入nginx.org来到官网，左边是他的新闻和日志</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-12/77458283.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>看下右下角的download，点进来，里面有很多版本</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-12/79408794.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>选择linux的stable version，点进去，里面会说明如何安装</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-12/39907219.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h4 id="推荐安装方法"><a href="#推荐安装方法" class="headerlink" title="推荐安装方法"></a>推荐安装方法</h4><p>在CentOS下安装，安装前线确认下NGINX是否存在，<code>nginx -v</code>是查看版本的指令,下面可以看到版本，编译东西，依赖，配置参数，看到这些说明机器已经安装了</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-12/58882478.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>如果没安装会出现什么样的提示？我么可以故意输入nginxs -v,下面说明机器没有安装nginx</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-12/94964213.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h4 id="下面准备一个全新的CentOS系统"><a href="#下面准备一个全新的CentOS系统" class="headerlink" title="下面准备一个全新的CentOS系统"></a>下面准备一个全新的CentOS系统</h4><p>跟上面讲的是一模一样的，唯一的区别是这台全新的系统里面什么都没有装</p>
+<p>查看nginx显示无，然后进行yum install<br>nginx它去加载库，然后它告诉说没有这个包</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-12/66251680.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>nginx不在官方的CentOS官方软件园下面，就是说CentOS自带是没有nginx这个东西的，nginx在epel下面存在，所以说破现在来安装他</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-12/64120826.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>看到安装一个包，总大小什么什么的</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-12/37781356.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>选择y，代表yes，最后告诉我们安装好了一个epel-release</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-12/2651078.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>然后再安装ngnix，下载速度根据网络速度</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-12/7535552.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>它告诉我们安装了一个包，里面有七个依赖</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-12/7535552.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>然后再选择y，他就开始帮我们安装</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-12/66136024.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>这时候再查看下nginx -v ，可以看到已经安装好了</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-12/53243164.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="配置web服务器"><a href="#配置web服务器" class="headerlink" title="配置web服务器"></a>配置web服务器</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-12/87884341.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>还是用git bash来连接到服务器，web服务器基本上是配置文件来使用的</p>
+<h3 id="首先找到配置文件"><a href="#首先找到配置文件" class="headerlink" title="首先找到配置文件"></a>首先找到配置文件</h3><p>配置文件在CentOS下面，可以看到他有个nginx.conf的文件，我们要对他进行修改</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-12/65990059.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h4 id="如果找不到配置文件"><a href="#如果找不到配置文件" class="headerlink" title="如果找不到配置文件"></a>如果找不到配置文件</h4><p>nginx提供了一个语法检查的一个命令 nginx -t,这样就可以找到配置文件地址</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-12/44335486.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="安装vim"><a href="#安装vim" class="headerlink" title="安装vim"></a>安装vim</h3><p>yum install vim，安装过了就不需要</p>
+<h3 id="然后打开nginx-conf"><a href="#然后打开nginx-conf" class="headerlink" title="然后打开nginx.conf"></a>然后打开nginx.conf</h3><p>输入vim nginx.conf，可以看到已经将user nginx改为了user root</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-12/12866453.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>然后看下http&gt;server&gt;location</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-12/74638064.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>简单说下vim的基本使用：</p>
+<p>首先刚进来的时候他是只读模式，可以通过按住shift和冒号出现左下角这么一个标志</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-12/74638064.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>这个时候输入一个指令<code>set nu</code> ，他出现一个行号,这是制图模式</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-12/64266085.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>摁下键盘了里面的i字母，改成insert模式，可以看到做下角变成insert</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-12/21756881.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>这个时候就可以对他进行编辑了（location里面abc删掉）</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-12/68991873.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-12/6700773.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>改完之后怎么保存，摁下esc，insert就没有了，然后还是刚才的<code>shift+：</code>,然后使用<code>wq</code>:w是保存，q是退出</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-12/35938508.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>然后点击回车，就退回到下面这个界面</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-12/2478310.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="再进入nginx-conf"><a href="#再进入nginx-conf" class="headerlink" title="再进入nginx.conf"></a>再进入nginx.conf</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-12/89475377.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>localtion里面有个<code>根</code>是什么？打开浏览器假设0.0.0.1是ip，根就是默认使用ip去访问网站，如果刚才是/abc,要在0.0.0.1/abc才可以访问到网站，这是个区别</p>
+<p>root代表网站路径，就是存放网站的地方，这里是/root/www/</p>
+<p>index就是默认输入ip以后他会帮我们显示那个网站，因为网站默认都是index，比方说我的网站就是跟别人不一样，叫main.html，这个时候需要对他进行一个配置，就是他会帮你去找main.html这个文件夹</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-12/26732409.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>++如果说这边是index.html要怎么去访问？++<br>需要用0.0.0.1/index.html去访问</p>
+<p>如果没有任何修改，则直接摁q就可以了。</p>
+<p>建立下面这么一个文件夹</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-12/71776217.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="上传网站到服务器"><a href="#上传网站到服务器" class="headerlink" title="上传网站到服务器"></a>上传网站到服务器</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-12/15781030.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>配置的话需要用到git bash</p>
+<p>先进行<code>scp</code>命令，发现是有的啊</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-12/15781030.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>然后连接到远程服务器，看下远程服务器是否有这个东西，然后输入scp,也可以看到他是有的</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-12/4202062.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>如果没有scp的话，则进行安装：yum install openssh-client(这个openssh-client提供了一个scp的工具)</p>
+<p>输入<code>logout</code> 退出服务器</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-12/61931974.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>./代表当前路径，*代表所有，上传到远程ip上的一个路径，回车输入密码，下面为上传的资源文件</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-12/72112771.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>这个时候再远程接入服务器</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-12/95317838.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>进来以后看下，cd进入文件夹root下面的www，并通过ls命令查看查看当前目录下，可以看到文件已经上传上来了</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-12/68901184.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>然后看下nginx服务，使用ps -ef | grep nginx,以下可以看到nginx正在启动</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-12/19343900.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>如何停止nginx呢？输入nginx -s stop即可停止</p>
+<p>还有一个问题就是nginx启动不了，失败，这个时可能是配置的原因，可以使用nginx -t查看一下 ，如果这里告诉你语法ok，那么就ok了</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-12/21135815.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>cat是查看</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-12/63395166.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>得到如下</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-12/72893282.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>那我现在是不是可以通过ip来访问网站呢，输入logout看下记录</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-12/1458819.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-12/64503786.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>看下服务，我们服务是没有启动的，所以这时候网站无法访问</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-12/39690899.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>这时候直接使用 nginx -relaod（重新加载），我们可以查出没有，没有找到这个地址</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-12/17204424.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>这个时候使nginx去启动</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-12/61439000.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>这个时候再去刷新一下网站，可以看到一个网站已经可以通过公用ip的方式去访问了，那么这个访问难免有有一些麻烦，因为记录一个ip是比较难的，相比记录一个域名的话</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-12/84369466.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="域名购买以及解析"><a href="#域名购买以及解析" class="headerlink" title="域名购买以及解析"></a>域名购买以及解析</h2><h3 id="域名购买"><a href="#域名购买" class="headerlink" title="域名购买"></a>域名购买</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-13/26915546.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-13/9249317.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>然后就可以进行支付了</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-13/14333216.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="域名映射"><a href="#域名映射" class="headerlink" title="域名映射"></a>域名映射</h3><p>打开右上角的控制台</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-13/42984257.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>控制台——&gt;域名与网站——&gt;域名——&gt;进入域名列表</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-13/48622285.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>点击解析</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-13/62531161.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>进入下面页面，这里哟个新手引导</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-13/52503823.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>www跟@的区别：www就是平常输入的hhtp:<a href="http://www.baidu.com，@就是输入baidu.com也能访问百度，这个@就是属于www的一个隐式的存在" target="_blank" rel="noopener">www.baidu.com，@就是输入baidu.com也能访问百度，这个@就是属于www的一个隐式的存在</a></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-13/44936912.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>记录值，也就是ip地址，这个时候点击确认就解析成功了。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-13/82423279.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>别忘了进行备案</p>
+<h2 id="结合http协议"><a href="#结合http协议" class="headerlink" title="结合http协议"></a>结合http协议</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-13/31893841.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>当我们访问一个网站，浏览器回去巡展.com根服务器，找域名对应的服务器地址，也就是公用的ip地址，然后他再去找域名服务商，找到后匹配，进行第一次握手，我们服务器上面架设一台web服务器，web服务器就是向外界提供web服务的软件，这个时候就会去请求web服务器，比如说请求一个文档，首先浏览器发出一个request，然后这个web服务器（也就是nginx），发出一个response，这个就是一个握手，这个时候我们就拿到了文档资源，这个时候浏览器通过浏览器内核根据资源文件，文档数据去渲染页面，到最后就是下面看到的这个界面</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-13/40031260.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9zhlsorz.bkt.clouddn.com/18-6-13/89478892.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<hr>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-06-12T16:44:44.437Z" itemprop="dateUpdated">2018-06-13 00:44:44</time>
+</span><br>
+
+
+        
+        原文链接:<a href="/2018/01/15/网站上线流程/" target="_blank" rel="external">https://yveda.github.io/2018/01/15/网站上线流程/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://yveda.github.io">
+            <img src="/img/avatar.jpg" alt="Yveda">
+            Yveda
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/域名/">域名</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/服务器/">服务器</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/网站/">网站</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/阿里云/">阿里云</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://yveda.github.io/2018/01/15/网站上线流程/&title=《用阿里云进行网站线上部署》 — Yveda.blog&pic=https://yveda.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://yveda.github.io/2018/01/15/网站上线流程/&title=《用阿里云进行网站线上部署》 — Yveda.blog&source=需要基础：
+
+1、有linux基础。
+2、对后台web开发有一定的了解。
+3、熟悉Nginx。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://yveda.github.io/2018/01/15/网站上线流程/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《用阿里云进行网站线上部署》 — Yveda.blog&url=https://yveda.github.io/2018/01/15/网站上线流程/&via=https://yveda.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://yveda.github.io/2018/01/15/网站上线流程/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/04/28/20180430/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">4月份总结</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/01/11/web前端开发书籍推荐/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">100本最棒的web前端图书推荐</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "gkc43n646uFgRpnBteNK14IO-gzGzoHsz",
+            appKey: "BLVRseT8FVjw0pWszOBW1Ush",
+            avatar: "identicon",
+            placeholder: "o((≧▽≦o)快来吐槽几句！！",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        博客总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        博客总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <a href="http://women.zaiyiqiba.com/yveda-candy.html">我不是诗人，所以，只能够把爱你写进程序</a>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://yveda.github.io/2018/01/15/网站上线流程/&title=《用阿里云进行网站线上部署》 — Yveda.blog&pic=https://yveda.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://yveda.github.io/2018/01/15/网站上线流程/&title=《用阿里云进行网站线上部署》 — Yveda.blog&source=需要基础：
+
+1、有linux基础。
+2、对后台web开发有一定的了解。
+3、熟悉Nginx。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://yveda.github.io/2018/01/15/网站上线流程/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《用阿里云进行网站线上部署》 — Yveda.blog&url=https://yveda.github.io/2018/01/15/网站上线流程/&via=https://yveda.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://yveda.github.io/2018/01/15/网站上线流程/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACK0lEQVR42u3ay04DMQwFUP7/pweJFRJqem0PgklOVlVbRjldGL8+PuJzfZ3k9fez/k7y/JsPBgbGYxnX8qwfnfxt7w7l52NgYBzAyIPsq9B5xacaoNd3w8DAwFhfOr/QPPXEwMDAmATcdWl6VwGMgYGBkadxE9g8lN9Qi2NgYDyQce9g4N7XfzbfwMDA+DeMa3zuTRx7t8LAwNibsX5cHuWS51STvHLzDgMDY2tGHjTz9ycJaF6sRr1DDAyMhzMm7fhX7Pxazd/75/sYGBhbM0ZFYzGNaw4mg3IXAwNjb0ZvNDgJlPl3kmS0mVFiYGA8ijEpJvPitjoKzZGFPiIGBsZ2jN8IuHkRmyeRGBgYJzDydn+erlVHCNWA/rIKx8DA2JQx31vIwdXUME9bMTAwTmD0FlWr7bleutncbsPAwNiakZeO1dHmPA0t19YYGBhbMCbrX9Ur9pLOcrsNAwNjO0b148k6V9JuSwaZ5RksBgbGFox1aVpt9OerEr1x6Zt2GwYGxtaMKqCX9uU/XDVZxMDAOIHRK2LzGWlv8FD4ETEwMLZmVBPEyWpXc++j2mjDwMDYiHEVz3yFq5eGvvnHgIGBsTWjGuaqC2F5sE4SUwwMjJMZvSBbDaY5vpk4YmBgHMDIl8PywUAyyJwkmhgYGBjV7LIadnuDgdsCLgYGxqaMfKzYW63IxwkYGBhnMvJwWU3y5osXGBgYGJPmfm94MGnMTRY1MDAwHsj4BGDjQc9Eho1aAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
